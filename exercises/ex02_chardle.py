@@ -8,6 +8,9 @@ def main() -> None:
     """Control panel of all the code, calls input_word and input_letter as parameters, then uses those values as keyword arguments for contains_char"""
 
 
+"""Stumped here trying to fix Type Safety issue, decided to exit instead of returning since the returns are based on conditionals, meaning different return types"""
+
+
 def input_word() -> str:
     user_word: str = input("Enter a 5-character word: ")
     if len(user_word) != 5:
@@ -17,6 +20,10 @@ def input_word() -> str:
     if len(user_word) == 5:
         """user_word compatible with program and returns the value to the main() function as a keyword argument for contains_char"""
         return user_word
+    exit()
+
+
+"""Stumped here trying to fix Type Safety issue, decided to exit instead of returning since the returns are based on conditionals, meaning different return types"""
 
 
 def input_letter() -> str:
@@ -28,6 +35,7 @@ def input_letter() -> str:
     if len(user_letter) == 1:
         """user_letter compatible with program and returns the value to the main() function as a keyword argument for contains_char"""
         return user_letter
+    exit()
 
 
 def contains_char(word: str, letter: str) -> None:
