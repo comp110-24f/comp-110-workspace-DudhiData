@@ -14,7 +14,7 @@ def main(secret: str) -> None:
     while turn <= 6:
         """Repeats all of the other function code until the 7th turn"""
         print(f"=== Turn {turn}/6 ===")
-        user_word: str = input_guess(5)
+        user_word: str = input_guess(len(secret))
         """Declaring the variable that will store the user's input that we will use to check against secret to decide if victory is true or not"""
         print(emojified(user_word, secret))
         if user_word == secret:
@@ -52,10 +52,7 @@ def contains_char(secret_word: str, char_guess: str) -> bool:
             """If a certain letter of the secret word matches the character guess, then show that at least one character in the user's guess is present"""
             return True
         index += 1
-    if (index - 1 == len(secret_word) - 1) and (secret_word[index - 1] != char_guess):
-        """Lower index to an acceptable range, allowing us to check if all character of secret have been iterated through, and if that last letter doesn't equal the character guess, return False"""
-        return False
-    exit()
+    return False
 
 
 """Returns a string of emojis that will tell whether a character in the guess is in the correct position, present but in the wrong position, or not present at all"""
@@ -71,7 +68,7 @@ def emojified(user_word: str, hidden_word: str) -> str:
     emoji_string: str = ""
     """Declaring placeholder variable we will append to, then return for printing"""
     while index <= len(user_word) - 1:
-        """Iterates 5 times, but could change depending on secret_char_value"""
+        """Iterates through the hidden word and user guess, but could change depending on secret_char_value"""
         if user_word[index] == hidden_word[index]:
             """Checks to see if the character of the word guessed matches the character of the secret word"""
             emoji_string += GREEN_BOX
