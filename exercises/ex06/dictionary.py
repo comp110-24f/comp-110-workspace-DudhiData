@@ -38,6 +38,9 @@ def invert(input: dict[str, str]) -> dict[str, str]:
 
 
 def favorite_color(input_1: dict[str, str]) -> str:
+    if len(input_1) == 0:
+        return ""
+        # checks for edge cases where the input dictionary is empty
     color_list: list[str] = []
     # initialize list that will hold the keys from the input dict
     favorite_count: dict[str, int] = {}
@@ -139,13 +142,13 @@ def update_attendance(
             if count == 0:
                 # if count is 0 this means there are no dupes and adds the name
                 days_and_students[key] += [student]
-    count: int = 0
+    count_1: int = 0
     # another count variable to check whether the day is present within the dict keys
     for key in days_and_students:
         # iterates through dict keys
         if key != day:
-            count += 1
-    if count == len(days_and_students):
+            count_1 += 1
+    if count_1 == len(days_and_students):
         # if count equals the length of the dict
         # that means the day isn't in the dict as a key and adds the day and the student
         days_and_students[day] = [student]
